@@ -141,6 +141,6 @@ svg#twitter {
 
 footer {
   color: white;
-  background: linear-gradient(0deg, rgba(0, 0, 0, .9) 50%, #bb1919);
+  background: linear-gradient(0, rgba(0, 0, 0, .9) 50%, #bb1919);
   text-align: center;
 }
