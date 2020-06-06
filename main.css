@@ -1,11 +1,11 @@
 * {
   margin: 0;
   padding: 0;
-  color: white;
+  /* color: white; */
 }
 
 body {
-  background-image: url(./images/fbcover.jpg);
+  /* background-image: url(./images/fbcover.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -13,7 +13,7 @@ body {
 }
 
 header {
-  display: flex;
+  /* display: flex; */
   position: fixed;
   color: white;
   text-align: right;
@@ -25,55 +25,71 @@ header {
 header * {
   display: inline;
   vertical-align: middle;
+  text-align: right;
 }
 
 .small-image {
-  width: 30%;
-  width: 150px;
+  width: 100%;
   border: 4px solid white;
   border-radius: 20px;
   box-shadow: 0 0 4px 4px;
+  margin-bottom: 1em;
 }
 
 .text-block {
   text-align: right;
-  padding: 0 2em;
-  background: linear-gradient(90deg, rgba(0, 0, 0, .5) 60%, transparent);
+  /* width: 40%; */
+  
+}
+.text-content {
+  width: calc(70% - 2em);
+  float: left;
+  background: linear-gradient(90deg, rgba(0, 0, 0, .9) 60%, rgba(0, 0, 0, .9));
+  padding: 1em;
+  border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
+
 }
 
-.text-block * {
-  display: inline;
-  vertical-align: middle;
-}
-.contact {
-  position: fixed;
-  width: 10%;
-  width: 120px;
+.imagencontact {
+  display: inline-block;
+  width: calc(30% - 2em);
+  float: right;
+  background: linear-gradient(90deg, rgba(0, 0, 0, .9) 20%, #bb1919);
   padding: 1em;
-  right: 2em;
-  top: 215px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, .5) 60%, transparent);
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
 }
-.contact * {
+.imagencontact * {
   display: block;
   text-align: right;
-}
 
-.contact a {
+}
+.imagencontact a>svg, .imagencontact a>img {
   color: white;
-  text-decoration: none;
+  font-size: 1em;
+  display: inline-block;
+  height: 1.5em;
 }
 
-.contact a:hover {
+.imagencontact a {
+  text-decoration: none;
+  color: white;
+  text-align: right;
+  margin-bottom: .25em;
+}
+
+.imagencontact a:hover {
   text-decoration: underline;
+}
+svg#twitter {
+  color: rgb(29, 161, 242);
 }
 
 .section-class {
-  margin-top: 2em;
-  margin-left: 4em;
-  margin-right: 300px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, .5) 60%, transparent);
   padding: 1em;
+  margin: 0 20%;
 }
 
 .first-section {
@@ -94,7 +110,8 @@ header * {
   width: 25px;
   height: 25px;
   border-radius: 30px;
-  background-color: white;
+  background-color: black;
+  background-color: #cecfd5;
   margin-right: 2em;
 }
 
