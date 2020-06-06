@@ -36,11 +36,6 @@ header * {
   margin-bottom: 1em;
 }
 
-.text-block {
-  text-align: right;
-  /* width: 40%; */
-  
-}
 .text-content {
   width: calc(70% - 2em);
   float: left;
@@ -48,11 +43,9 @@ header * {
   padding: 1em;
   border-bottom-left-radius: 6px;
   border-top-left-radius: 6px;
-
 }
 
 .imagencontact {
-  display: inline-block;
   width: calc(30% - 2em);
   float: right;
   background: linear-gradient(90deg, rgba(0, 0, 0, .9) 20%, #bb1919);
@@ -93,7 +86,7 @@ svg#twitter {
 }
 
 .first-section {
-  margin-top: 400px;
+  margin-top: 350px;
 }
 .article-class {
   margin-left: 5em;
@@ -106,12 +99,20 @@ svg#twitter {
   margin-left: 2em;
 }
 
-.white-dot {
-  width: 25px;
-  height: 25px;
-  border-radius: 30px;
+.section-dot {
+  width: 13px;
+  height: 26px;
+}
+.black-dot {
   background-color: black;
-  background-color: #cecfd5;
+  border-top-left-radius: 26px;
+  border-bottom-left-radius: 26px;
+}
+
+.red-dot {
+  background-color: #bb1919;
+  border-top-right-radius: 26px;
+  border-bottom-right-radius: 26px;
   margin-right: 2em;
 }
 
