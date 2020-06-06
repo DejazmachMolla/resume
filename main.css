@@ -30,18 +30,19 @@ header * {
 .badge-info {
   position: fixed;
   color: black;
-  left: -50px;
-  top: 50px;
+  left: -70px;
+  top: 70px;
   background-color: yellow;
   height: 40px;
   transform: rotate(-30deg);
-  padding: 0 6em;
+  padding: 0 3em;
 }
 .badge-info * {
   vertical-align: middle;
   padding: 1em;
   text-align: center;
 }
+
 .small-image {
   width: 100%;
   border: 4px solid white;
@@ -136,4 +137,10 @@ svg#twitter {
 .section-heading * {
   display: inline-block;
   vertical-align: middle;
+}
+
+footer {
+  color: white;
+  background: linear-gradient(0deg, rgba(0, 0, 0, .9) 50%, #bb1919);
+  text-align: center;
 }
