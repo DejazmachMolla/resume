@@ -12,7 +12,7 @@
 <body>
   <header>
     <div class="text-block">
-      <div class="text-content">
+      <div class="text-content" id="text-content">
         <h1>Dejazmach G. Molla</h1><br>
         <p>A highly motivated and organized full-stack web developer with more than 4 years development experience in
           Angular, React, Spring Boot and Ruby On Rails.</p>
@@ -62,34 +62,53 @@
       </ul>
     </article>
     <article class="article-class">
-      <h3>Assistant Lecturer</h3>
+      <h3>Software Engineer</h3>
       <ul>
-        <li>Teaching Object Oriented Programming Using Java</li>
-        <li>Teaching Computer Networking and Digital Communication</li>
-        <li>Research</li>
-        <li>Advising Students</li>
-        <li>Community Services</li>
+        <li>Smart Water Meter Data Management RESTful API Development</li>
+        <li>Smart Water Meter Data Management RESTful API Testing</li>
+        <li>Google Maps Based Smart Electric Meter Grid Management System Cleanup </li>
+        <li>Angular-Spring, HTML5, JavaScript, CSS3, Redux, Java, Hibernate, Maven, MySql, Jackson, Spring Security,
+          Spring MVC, Spring Data JPA ...</li>
       </ul>
+
+
+
+
     </article>
     <article class="article-class">
-      <h3>Assistant Lecturer</h3>
+      <h3>Software Engineer</h3>
       <ul>
-        <li>Teaching Object Oriented Programming Using Java</li>
-        <li>Teaching Computer Networking and Digital Communication</li>
-        <li>Research</li>
-        <li>Advising Students</li>
-        <li>Community Services</li>
+        <li>Mulesoft Products Training</li>
+        <li>AWS and Remote Database Administration</li>
+        <li>Spring Boot, Java, MySQL, REST</li>
       </ul>
+
+
+
     </article>
     <article class="article-class">
-      <h3>Assistant Lecturer</h3>
+      <h3>Cyber Talent, Software Audit and Evaluation</h3>
       <ul>
-        <li>Teaching Object Oriented Programming Using Java</li>
-        <li>Teaching Computer Networking and Digital Communication</li>
-        <li>Research</li>
-        <li>Advising Students</li>
-        <li>Community Services</li>
+        <li>Developing a fullstack recruitment web application</li>
+        <li>Angular-Spring Boot, HTML5, JavaScript, CSS3, Java, Hibernate, Maven, MySql, Jackson, Spring Security,
+          Spring MVC, Spring Data JPA, Image Cropping, Uploading & Compression, Progressive Web Apps, OAuth2
+          Authentication
+        </li>
+        <li>Penetration Testing</li>
       </ul>
+
+
+    </article>
+
+    <article class="article-class">
+      <h3>Junior Core Network Engineer</h3>
+      <ul>
+        <li>Deployed 3G Network in Nekemte and Ambo Cities</li>
+        <li>Data Center Design and Implementation in the 120 Schools Ministry of Education Project
+        </li>
+      </ul>
+
+
     </article>
 
   </section>
@@ -104,24 +123,36 @@
     </div>
 
     <article class="article-class">
-      <h3>Assistant Lecturer</h3>
+      <h3>Bachelor of Science in Electrical and Computer Engineering</h3>
       <ul>
-        <li>Teaching Object Oriented Programming Using Java</li>
-        <li>Teaching Computer Networking and Digital Communication</li>
-        <li>Research</li>
-        <li>Advising Students</li>
-        <li>Community Services</li>
+        <li>Final year Project: Home Security Embedded Project</li>
+        <li>Question and Answer Web Application for 20 questions</li>
+        <li>Image reconstruction puzzle game</li>
       </ul>
     </article>
 
     <article class="article-class">
-      <h3>Assistant Lecturer</h3>
+      <h3>Mobile Web Specialist Learner</h3>
       <ul>
-        <li>Teaching Object Oriented Programming Using Java</li>
-        <li>Teaching Computer Networking and Digital Communication</li>
-        <li>Research</li>
-        <li>Advising Students</li>
-        <li>Community Services</li>
+        <li>HTML5, CSS & Javascript (ES2015)</li>
+        <li>Progressive Web Apps</li>
+        <li>Angular</li>
+        <li>Redux</li>
+        <li>OpenID Connect and OAuth 2</li>
+        <li>Business Professional Skills and more</li>
+        <li>CICD</li>
+        <li>Agile Methodologies</li>
+      </ul>
+    </article>
+
+    <article class="article-class">
+      <h3>Fullstack Web Developer</h3>
+      <ul>
+        <li>RUBY</li>
+        <li>RUBY ON RAILS</li>
+        <li>REACT & REDUX</li>
+        <li>Coding Challenges</li>
+        <li>Professional Skills</li>
       </ul>
     </article>
 
@@ -193,7 +224,17 @@
 
   </section>
   <script>
-
+    var prevScrollpos = 150;
+    window.onscroll = function () {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("text-content").style.display = "block";
+        document.getElementsByClassName("imagencontact")[0].style.borderTopLeftRadius = "0";
+      } else {
+        document.getElementById("text-content").style.display = "none";
+        document.getElementsByClassName("imagencontact")[0].style.borderTopLeftRadius = "6px";
+      }
+    }
   </script>
 </body>
 
