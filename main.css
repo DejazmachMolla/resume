@@ -17,8 +17,8 @@ header {
   position: fixed;
   color: white;
   text-align: right;
-  top: 2em;
-  right: 2em;
+  top: 1em;
+  right: 1em;
   width: 40%;
 }
 
@@ -43,16 +43,21 @@ header * {
   text-align: center;
 }
 
+.icon {
+  border-radius: 100%;
+  padding: 3px;
+}
+
 .small-image {
   width: 100%;
-  border: 4px solid white;
+  /* border: 4px solid white; */
   border-radius: 20px;
   box-shadow: 0 0 4px 4px;
   margin-bottom: 1em;
 }
 
 .text-content {
-  width: calc(70% - 2em);
+  width: calc(65% - 2em);
   float: left;
   background: linear-gradient(90deg, rgba(0, 0, 0, .9) 60%, rgba(0, 0, 0, .9));
   padding: 1em;
@@ -62,7 +67,7 @@ header * {
 }
 
 .imagencontact {
-  width: calc(30% - 2em);
+  width: calc(35% - 2em);
   float: right;
   background: linear-gradient(90deg, rgba(0, 0, 0, .9) 20%, #bb1919);
   padding: 1em;
@@ -95,7 +100,7 @@ header * {
   text-decoration: underline;
 }
 svg#twitter {
-  color: rgb(29, 161, 242);
+  color: rgb(29, 161, 242) !important;
 }
 
 .section-class {
