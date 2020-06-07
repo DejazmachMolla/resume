@@ -118,16 +118,18 @@ svg#twitter {
   margin-top: 350px;
 }
 .article-class {
-  margin-left: 5em;
+  margin: 2em 1em 0 4em;
   display: grid;
-  grid-template-columns: 1fr 5fr;
-  margin-top: 1em;
+  grid-template-columns: 2fr 5fr;
 }
 
 .article-class ul {
   margin-left: 2em;
 }
 
+.article-title>p {
+  font-style: italic;
+}
 .section-dot {
   width: 13px;
   height: 26px;
@@ -142,7 +144,7 @@ svg#twitter {
   background-color: #bb1919;
   border-top-right-radius: 26px;
   border-bottom-right-radius: 26px;
-  margin-right: 2em;
+  margin-right: 1em;
 }
 
 .section-heading * {
