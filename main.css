@@ -1,19 +1,28 @@
 * {
   margin: 0;
   padding: 0;
-  /* color: white; */
 }
 
 body {
-  /* background-image: url(./images/fbcover.jpg); */
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   font-family: 'Noto Sans JP', sans-serif;
 }
 
+li {
+  vertical-align: middle;
+  list-style: none;
+  background: url(./images/bullet.jpg) left top no-repeat; 
+  padding-left: 2em;
+  padding-bottom: 1em;
+
+}
+.list-text {
+  position: relative;
+  top: -5px;
+}
 header {
-  /* display: flex; */
   position: fixed;
   color: white;
   text-align: right;
@@ -50,7 +59,6 @@ header * {
 
 .small-image {
   width: 100%;
-  /* border: 4px solid white; */
   border-radius: 20px;
   box-shadow: 0 0 4px 4px;
   margin-bottom: 1em;
@@ -99,8 +107,9 @@ header * {
 .imagencontact a:hover {
   text-decoration: underline;
 }
+
 svg#twitter {
-  color: rgb(29, 161, 242) !important;
+  fill: rgb(29, 161, 242) !important;
 }
 
 .section-class {
