@@ -107,6 +107,12 @@ svg#twitter {
   padding: 1em;
   margin: 0 15%;
 }
+.section-class>article {
+  padding-bottom: 1em;
+}
+.section-class>article:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+}
 
 .first-section {
   margin-top: 350px;
