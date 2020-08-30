@@ -272,3 +272,24 @@ footer {
   background-color: #c52429;
   margin-top: -150px;
 }
+
+.project-desc {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 70px;
+  align-items: center;
+  justify-content: center;
+}
+.project-desc > img {
+  display: inline-block;
+  border-radius: 100%;
+  border: 3px solid white;
+  width: 90%;
+}
+.project-desc > p {
+  width: 90%;
+  text-align: center;
+  font-weight: bold;
+  margin-top: .5rem;
+}
