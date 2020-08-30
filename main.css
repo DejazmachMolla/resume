@@ -18,10 +18,12 @@ li {
   padding-bottom: 1em;
 
 }
+
 .list-text {
   position: relative;
   top: -5px;
 }
+
 header {
   position: fixed;
   color: white;
@@ -29,6 +31,8 @@ header {
   top: 1em;
   right: 1em;
   width: 40%;
+  transition: all .2s ease-in;
+  z-index: 5;
 }
 
 header * {
@@ -36,6 +40,7 @@ header * {
   vertical-align: middle;
   text-align: right;
 }
+
 .badge-info {
   position: fixed;
   color: black;
@@ -46,6 +51,7 @@ header * {
   transform: rotate(-30deg);
   padding: 0 3em;
 }
+
 .badge-info * {
   vertical-align: middle;
   padding: 1em;
@@ -71,7 +77,7 @@ header * {
   padding: 1em;
   border-bottom-left-radius: 6px;
   border-top-left-radius: 6px;
-  transition: display 1s, visibility 1s, opacity 0.5s ease-out;
+  transition: all .2s ease-in;
 }
 
 .imagencontact {
@@ -84,11 +90,12 @@ header * {
   border-top-right-radius: 6px;
   text-align: center;
 }
+
 .imagencontact * {
   display: block;
   text-align: right;
-
 }
+
 .imagencontact a>svg, .imagencontact a>img {
   color: white;
   font-size: 1em;
@@ -99,9 +106,10 @@ header * {
 .imagencontact a {
   text-decoration: none;
   color: white;
-  text-align: right;
   margin-bottom: .25em;
   line-height: 2em;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .imagencontact a:hover {
@@ -116,16 +124,19 @@ svg#twitter {
   padding: 1em;
   margin: 0 15%;
 }
+
 .section-class>article {
   padding-bottom: 1em;
 }
+
 .section-class>article:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
 
 .first-section {
-  margin-top: 350px;
+  margin-top: 450px;
 }
+
 .article-class {
   margin: 2em 1em 0 4em;
   display: grid;
@@ -139,10 +150,12 @@ svg#twitter {
 .article-title>p {
   font-style: italic;
 }
+
 .section-dot {
   width: 13px;
   height: 26px;
 }
+
 .black-dot {
   background-color: black;
   border-top-left-radius: 26px;
@@ -154,6 +167,7 @@ svg#twitter {
   border-top-right-radius: 26px;
   border-bottom-right-radius: 26px;
   margin-right: 1em;
+  margin-left: -3px;
 }
 
 .section-heading * {
@@ -165,4 +179,95 @@ footer {
   color: white;
   background: linear-gradient(0, rgba(0, 0, 0, .9) 50%, #bb1919);
   text-align: center;
+}
+
+.html-projects {
+  min-height: 50vh;
+}
+
+.project-list {
+  height: 75vh;
+  padding: 0 6%;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.project {
+  height: 100%;
+  border-radius: 3px;
+  box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.26);
+  color: white;
+  position: relative;
+}
+
+.title-banner {
+  width: 90%;
+  height: 60px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  position: absolute;
+  top: -15px;
+  z-index: 2;
+  box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.26);
+  display: flex;
+  align-items: center;
+}
+
+.title-left-banner {
+  position: absolute;
+  width: 20px;
+  height: 100px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  top: -15px;
+  left: -20px;
+}
+
+.title-bottom-banner {
+  position: absolute;
+  width: 20px;
+  height: 40px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  top: 45px;
+  left: -20px;
+}
+
+.green {
+  background-color: #109242;
+}
+
+.red {
+  background-color: #c52429;
+}
+
+.dark-red {
+  background-image: linear-gradient(to top, #c52429, #7b2427);
+}
+
+.gray {
+  background-color: #525552;
+}
+
+.dark-gray {
+  background-image: linear-gradient(to top, #525552, black);
+}
+
+.yellow {
+  background-color: #f7ae3a;
+}
+
+.dark-yellow {
+  background-image: linear-gradient(to top, #f7ae3a, #9a742d);
+}
+
+.dark-green {
+  background-image: linear-gradient(to top, #109242 , #0e6137);
+}
+
+.module-desc {
+  height: 75vh;
+  background-color: #c52429;
+  margin-top: -150px;
 }
