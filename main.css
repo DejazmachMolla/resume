@@ -1,3 +1,10 @@
+
+@font-face {
+  font-family: Cocogoose;
+  font-weight: bold;
+  src: url("./fonts/Cocogoose_trial.otf") format("opentype");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -33,6 +40,7 @@ header {
   width: 40%;
   transition: all .2s ease-in;
   z-index: 5;
+  
 }
 
 header * {
@@ -78,6 +86,17 @@ header * {
   border-bottom-left-radius: 6px;
   border-top-left-radius: 6px;
   transition: all .2s ease-in;
+}
+.text-content h1 {
+  font-size: 1.5rem;
+}
+
+.text-content p {
+  font-size: 1rem;
+  font-weight: lighter;
+}
+.text-content h1, .contact-links a {
+  font-family: 'Cocogoose', sans-serif;
 }
 
 .imagencontact {
@@ -292,4 +311,34 @@ footer {
   text-align: center;
   font-weight: bold;
   margin-top: .5rem;
+}
+
+.project-btns {
+  width: 80%;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+.project-btns > a {
+  padding: .5rem 1rem;
+  font-style: 1.5rem;
+  font-weight: bolder;
+  margin: .5rem;
+  background-color: transparent;
+  border: 3px solid white;
+  border-radius: 6px;
+  color: white;
+  width: 50%;
+  text-decoration: none;
+  text-align: center;
+  font-family: 'Cocogoose', sans-serif;
+}
+
+.project-btns > a:hover {
+  background-color: white;
+  border-color: transparent;
+}
+
+.project.gray  a:hover {
+  color: #525552;
 }
