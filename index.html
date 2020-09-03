@@ -394,6 +394,7 @@
         document.getElementById("text-content").style.width = "calc(65% - 2em)";
         document.getElementsByTagName("header")[0].style.right = "1em";
         document.getElementsByTagName("header")[0].style.top = "1em";
+        document.getElementsByClassName("contact-links")[0].style.display = "block";
         var linkTexts = document.getElementsByClassName("external-link");
         for (var i = 0; i < linkTexts.length; i++) {
           linkTexts[i].style.display = "block";
@@ -408,7 +409,9 @@
         document.getElementsByClassName("imagencontact")[0].style.borderTopLeftRadius = "6px";
         document.getElementsByTagName("header")[0].style.right = "0";
         document.getElementsByTagName("header")[0].style.top = "0";
-        // document.getElementsByClassName("contact-links")[0].style.display = "none";
+        document.getElementsByClassName("contact-links")[0].style.display = "flex";
+        document.getElementsByClassName("contact-links")[0].style.flexDirection = "column";
+        document.getElementsByClassName("contact-links")[0].style.alignItems = "center";
         var linkTexts = document.getElementsByClassName("external-link");
         for (var i = 0; i < linkTexts.length; i++) {
           linkTexts[i].style.display = "none";

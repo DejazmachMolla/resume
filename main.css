@@ -276,7 +276,7 @@ footer {
   border-radius: 100%;
   background-color: white;
   position: absolute;
-  top: 60%;
+  top: 50%;
   right: 10px;
   box-shadow: 0px 3px 29px -4px rgba(0,0,0,0.75);
   display: flex;
@@ -300,7 +300,7 @@ footer {
 }
 
 .project {
-  height: 100%;
+  /* height: 100%; */
   min-width: 25%;
   border-radius: 3px;
   box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.26);
@@ -308,6 +308,7 @@ footer {
   position: relative;
   transition: all 200ms ease-in;
   margin-top: 100px;
+  padding-bottom: 3rem;
 }
 
 .title-banner {
@@ -379,7 +380,8 @@ footer {
 
 .module-desc {
   height: 75vh;
-  background-color: #c52429;
+  margin-top: -150px;
+  /* background-color: #c52429; */
   background-image: url(./images/Diamond-Sunset-Black-Red.svg);
 }
 
@@ -387,7 +389,7 @@ footer {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: -40px;
+  margin-top: -60px;
   align-items: center;
   justify-content: center;
 }
@@ -404,8 +406,8 @@ footer {
   margin-top: .5rem;
   font-family: monospace;
   background-color: black;
-  color: lightgreen;
-  color: white;
+  color: rgb(121, 250, 109);
+  /* color: white; */
   padding: .25rem;
   border-radius: 3px;
 }
@@ -455,6 +457,6 @@ footer {
   transition: all 200ms ease-in;
 }
 
-/* .project:hover {
+.project:hover {
   transform: scale(1.01);
-} */
+}
