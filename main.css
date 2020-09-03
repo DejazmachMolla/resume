@@ -26,6 +26,7 @@ li {
 
 }
 
+/* HEADER */
 .list-text {
   position: relative;
   top: -5px;
@@ -95,7 +96,9 @@ header * {
   font-size: 1rem;
   font-weight: lighter;
 }
-.text-content h1, .contact-links a {
+.text-content h1, 
+.contact-links a,
+.module-title h2 {
   font-family: 'Cocogoose', sans-serif;
 }
 
@@ -140,6 +143,8 @@ svg#twitter {
   fill: rgb(29, 161, 242) !important;
 }
 
+
+/* BODY */
 .section-class {
   padding: 1em;
   margin: 0 15%;
@@ -205,6 +210,53 @@ footer {
   min-height: 50vh;
 }
 
+.module-title {
+  margin: 0 6%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.module-underline {
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  background-color: gray;
+}
+.module-title-hanger {
+  height: 60px;
+  width: 2px;
+  background-color: gray;
+  position: relative;
+  left: calc(50% - 1px);
+}
+.hanger-dot {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  position: relative;
+  top: -120px;
+  left: calc(50% - 15px);
+  text-align: center;
+}
+.hanger-line {
+  height: 100px;
+  width: 2px;
+  background-color: gray;
+  position: relative;
+  top: -120px;
+  left: calc(50% - 1px);
+}
+
+.hanger {
+  width: 100%;
+  height: 10px;
+  border: 2px solid gray;
+  background-color: white;
+  border-radius: 10px;
+  /* margin-bottom: 100px; */
+}
+
 .project-list {
   height: 85vh;
   padding: 0 6%;
@@ -215,10 +267,13 @@ footer {
 
 .project {
   height: 100%;
+  min-width: 25%;
   border-radius: 3px;
   box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.26);
   color: white;
   position: relative;
+  transition: all 200ms ease-in;
+  margin-top: 100px;
 }
 
 .title-banner {
@@ -228,10 +283,12 @@ footer {
   border-bottom-right-radius: 30px;
   position: absolute;
   top: -15px;
+  left: -1px;
   z-index: 2;
   box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.26);
   display: flex;
   align-items: center;
+
 }
 
 .title-left-banner {
@@ -289,14 +346,14 @@ footer {
 .module-desc {
   height: 75vh;
   background-color: #c52429;
-  margin-top: -150px;
+  background-image: url(./images/Diamond-Sunset-Black-Red.svg);
 }
 
 .project-desc {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 70px;
+  margin-top: -40px;
   align-items: center;
   justify-content: center;
 }
@@ -342,3 +399,22 @@ footer {
 .project.gray  a:hover {
   color: #525552;
 }
+
+.project.yellow  a:hover {
+  color: #f7ae3a;
+}
+
+.project.green  a:hover {
+  color: #109242;
+}
+
+.project.red  a:hover {
+  color: #c52429;
+}
+.project a {
+  transition: all 200ms ease-in;
+}
+
+/* .project:hover {
+  transform: scale(1.01);
+} */
