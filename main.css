@@ -211,7 +211,7 @@ footer {
   text-align: center;
 }
 
-.html-projects {
+.module {
   min-height: 50vh;
 }
 
@@ -324,6 +324,51 @@ footer {
   display: flex;
   align-items: center;
 
+}
+.education-banner {
+  width: 40px;
+  height: 50px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  position: absolute;
+  top: -10px;
+  right: -5px;
+  z-index: 2;
+  box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.26);
+  display: flex;
+  align-items: center;
+  transform: rotate(-90deg);
+  background-color: black;
+}
+.education-top-square {
+  position: absolute;
+  width: 60px;
+  height: 50px;
+  top: -30px;
+  right: -20px;
+  /* transform: rotate(45deg); */
+  transform: rotate3d(1, 1, 1, -60deg);
+  background-color: black;
+  z-index: 10;
+  box-shadow: 13px 21px 29px -4px rgba(0,0,0,0.75);
+  border: 2px solid rgb(150, 149, 148);
+}
+.education-ribban {
+  width: 8px;
+  height: 90px;
+  background-color: gold;
+  position: absolute;
+  top: 0;
+  right: -25px;
+}
+.ribban-styler {
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  background-color: white;
+  transform: rotate(45deg);
+  top: 85px;
+  right: -25px;
 }
 
 .title-left-banner {
