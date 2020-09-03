@@ -26,6 +26,11 @@ li {
 
 }
 
+button:hover,
+a:hover {
+  cursor: pointer;
+}
+
 /* HEADER */
 .list-text {
   position: relative;
@@ -254,15 +259,44 @@ footer {
   border: 2px solid gray;
   background-color: white;
   border-radius: 10px;
-  /* margin-bottom: 100px; */
 }
 
 .project-list {
-  height: 85vh;
+  /* height: 75vh; */
   padding: 0 6%;
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(4, 1fr);
+  position: relative;
+}
+
+.next-btn {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  background-color: white;
+  position: absolute;
+  top: 60%;
+  right: 10px;
+  box-shadow: 0px 3px 29px -4px rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  transition: all 200ms ease-in;
+}
+.next-btn:hover {
+  background-color: rgb(182, 180, 180);
+}
+.next-btn:hover > i {
+  color: white;
+}
+
+.next-btn > i {
+  color: #c52429;
+  font-size: 2em;
+  transition: all 200ms ease-in;
 }
 
 .project {
@@ -364,20 +398,26 @@ footer {
   width: 90%;
 }
 .project-desc > p {
-  width: 90%;
+  width: 80%;
   text-align: center;
   font-weight: bold;
   margin-top: .5rem;
+  font-family: monospace;
+  background-color: black;
+  color: lightgreen;
+  color: white;
+  padding: .25rem;
+  border-radius: 3px;
 }
 
 .project-btns {
-  width: 80%;
+  width: 90%;
   margin-top: 2rem;
   display: flex;
   justify-content: center;
 }
 .project-btns > a {
-  padding: .5rem 1rem;
+  padding: .25rem .5rem;
   font-style: 1.5rem;
   font-weight: bolder;
   margin: .5rem;
