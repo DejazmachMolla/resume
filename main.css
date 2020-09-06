@@ -251,6 +251,7 @@ footer {
   position: relative;
   top: -120px;
   left: calc(50% - 1px);
+  z-index: 0;
 }
 
 .hanger {
@@ -309,6 +310,7 @@ footer {
   transition: all 200ms ease-in;
   margin-top: 100px;
   padding-bottom: 3rem;
+  z-index: 1;
 }
 
 .title-banner {
@@ -444,7 +446,8 @@ footer {
   border: 3px solid white;
   width: 90%;
 }
-.project-desc > p {
+.project-desc > p, 
+.education-desc > p {
   width: 80%;
   text-align: center;
   font-weight: bold;
@@ -504,4 +507,38 @@ footer {
 
 .project:hover {
   transform: scale(1.01);
+}
+
+.education-list {
+  padding: 0 6%;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+}
+
+.school {
+  display: flex;
+}
+.education {
+  border-radius: 3px;
+  box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.26);
+  color: white;
+  position: relative;
+  transition: all 200ms ease-in;
+  margin-top: 100px;
+  /* padding-bottom: 3rem; */
+  z-index: 1;
+}
+.education-desc {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: -65px;
+  align-items: flex-start;
+  justify-content: center;
+  /* padding: 0 5%; */
+}
+.education-desc > p {
+  align-self: center;
 }
