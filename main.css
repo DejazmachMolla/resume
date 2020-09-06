@@ -74,7 +74,9 @@ header * {
 
 .icon {
   border-radius: 100%;
-  padding: 3px;
+  margin-bottom: 3px;
+  padding: 2px;
+  background-color: white;
 }
 
 .small-image {
@@ -327,7 +329,7 @@ footer {
   align-items: center;
 
 }
-.education-banner {
+/* .education-banner {
   width: 40px;
   height: 50px;
   border-top-left-radius: 20px;
@@ -341,7 +343,7 @@ footer {
   align-items: center;
   transform: rotate(-90deg);
   background-color: black;
-}
+} */
 .education-top-square {
   position: absolute;
   width: 60px;
@@ -356,21 +358,32 @@ footer {
   border: 2px solid rgb(150, 149, 148);
 }
 .education-ribban {
-  width: 8px;
-  height: 90px;
+  width: 6px;
+  height: 50px;
   background-color: gold;
   position: absolute;
   top: 0;
   right: -25px;
+  z-index: 2;
 }
 .ribban-styler {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   position: absolute;
   background-color: white;
   transform: rotate(45deg);
-  top: 85px;
+  top: 46px;
   right: -25px;
+  z-index: 2;
+}
+
+.education > .fa-graduation-cap {
+  position: absolute;
+  font-size: 80px;
+  color: black;
+  top: -46px;
+  right: -42px;
+  transform: rotateY(180deg);
 }
 
 .title-left-banner {
@@ -429,9 +442,15 @@ footer {
   height: 75vh;
   margin-top: -150px;
   /* background-color: #c52429; */
-  background-image: url(./images/Diamond-Sunset-Black-Red.svg);
+  
 }
-
+.html-css-module-desc {
+  /* background-image: url(./images/Diamond-Sunset-Black-Red.svg); */
+  background-image: url(./images/Diamond-Sunset-Grey-Blue.svg);
+}
+.educations-module-desc {
+  background-image: url(./images/Diamond-Sunset-Green-Blue.svg);
+}
 .project-desc {
   display: flex;
   flex-direction: column;
@@ -448,7 +467,7 @@ footer {
 }
 .project-desc > p, 
 .education-desc > p {
-  width: 80%;
+  /* width: 90%; */
   text-align: center;
   font-weight: bold;
   margin-top: .5rem;
@@ -527,8 +546,10 @@ footer {
   position: relative;
   transition: all 200ms ease-in;
   margin-top: 100px;
-  /* padding-bottom: 3rem; */
   z-index: 1;
+  padding: 1rem 5%;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 .education-desc {
   display: flex;
@@ -541,4 +562,88 @@ footer {
 }
 .education-desc > p {
   align-self: center;
+}
+
+.school-name,
+.title-of-education {
+  display: flex;
+  align-items: center;
+}
+.school-name > i {
+  font-size: 24px;
+}
+
+.education-desc > h5 {
+  width: 100%;
+  text-align: right;
+}
+
+.education-banner {
+  width: calc(100% + 2px);
+  height: 60px;
+  position: absolute;
+  top: 15px;
+  left: -1px;
+  
+  z-index: 2;
+  box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.26);
+  display: flex;
+  align-items: center;
+}
+
+.education-title-banner {
+  position: absolute;
+  width: 20px;
+  height: 100px;
+  top: 15px;
+}
+.education-title-left-banner {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  left: -20px;
+}
+.education-title-right-banner {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  right: -20px;
+  z-index: 3;
+}
+.education-title-bottom-banner {
+  position: absolute;
+  width: 20px;
+  height: 40px;
+  top: 75px;
+  z-index: 4;
+}
+.education-title-bottom-left-banner {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  left: -20px;
+}
+.education-title-bottom-right-banner {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  right: -20px;
+}
+.education-banner {
+  display: flex;
+  justify-content: center;
+}
+.education-hanger-dot {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  position: relative;
+  top: -140px;
+  left: calc(50% - 15px);
+  text-align: center;
+}
+.education-hanger-line {
+  height: 100px;
+  width: 2px;
+  background-color: gray;
+  position: relative;
+  top: -140px;
+  left: calc(50% - 1px);
+  z-index: 0;
 }
