@@ -223,6 +223,9 @@ footer {
   flex-direction: column;
   align-items: center;
 }
+.module:not(:first-of-type) .module-title h2 {
+  margin-top: 2rem;
+}
 
 .module-underline {
   width: 100%;
@@ -253,7 +256,7 @@ footer {
   position: relative;
   top: -120px;
   left: calc(50% - 1px);
-  z-index: 0;
+  z-index: -1;
 }
 
 .hanger {
@@ -329,21 +332,7 @@ footer {
   align-items: center;
 
 }
-/* .education-banner {
-  width: 40px;
-  height: 50px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  position: absolute;
-  top: -10px;
-  right: -5px;
-  z-index: 2;
-  box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.26);
-  display: flex;
-  align-items: center;
-  transform: rotate(-90deg);
-  background-color: black;
-} */
+
 .education-top-square {
   position: absolute;
   width: 60px;
@@ -381,8 +370,8 @@ footer {
   position: absolute;
   font-size: 80px;
   color: black;
-  top: -46px;
-  right: -42px;
+  top: -53px;
+  right: -21px;
   transform: rotateY(180deg);
 }
 
@@ -467,16 +456,17 @@ footer {
 }
 .project-desc > p, 
 .education-desc > p {
-  /* width: 90%; */
   text-align: center;
   font-weight: bold;
   margin-top: .5rem;
   font-family: monospace;
   background-color: black;
   color: rgb(121, 250, 109);
-  /* color: white; */
   padding: .25rem;
   border-radius: 3px;
+}
+.project-desc > p {
+  width: 90%;
 }
 
 .project-btns {
@@ -539,6 +529,10 @@ footer {
 .school {
   display: flex;
 }
+.edu-container {
+  position: relative;
+  
+}
 .education {
   border-radius: 3px;
   box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.26);
@@ -546,11 +540,20 @@ footer {
   position: relative;
   transition: all 200ms ease-in;
   margin-top: 100px;
-  z-index: 1;
-  padding: 1rem 5%;
+  padding: 1rem 5% 20px;
   margin-right: 20px;
   margin-left: 20px;
+  background-image: url(./images/education_background.png);
+  background-position: center;
+  background-blend-mode: overlay;
+  background-size: cover;
+  z-index: 10;
 }
+
+.education:hover {
+  background-blend-mode: soft-light;
+}
+
 .education-desc {
   display: flex;
   flex-direction: column;
@@ -639,11 +642,122 @@ footer {
   text-align: center;
 }
 .education-hanger-line {
-  height: 100px;
+  height: 120px;
   width: 2px;
   background-color: gray;
   position: relative;
   top: -140px;
   left: calc(50% - 1px);
-  z-index: 0;
+  z-index: -1;
+}
+.lower-edu-banner {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  margin-top: -20px;
+  box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.26);
+  z-index: 9;
+}
+.lower-edu-left-banner {
+  left: 40px;
+  transform: rotate(15deg);
+}
+.lower-edu-right-banner {
+  right: 40px;
+  transform: rotate(-15deg);
+}
+.lower-edu-banner-cover {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background-blend-mode: screen;
+}
+.lower-banner-cutter {
+  position: relative;
+  width: 41px;
+  height: 41px;
+  /* background-color: white; */
+  top: 29px;
+  left: 9px;
+  transform: rotate(134deg);
+  mix-blend-mode: exclusion;
+  /* background-color: #000; */
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.speaker-grid article {
+  position: relative;
+}
+
+.speaker-grid > article {
+  margin-bottom: 4rem;
+}
+
+.speaker-grid article img {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  width: 100px;
+  transition: 300ms all ease-out;
+}
+
+.speaker-grid article img:hover {
+  left: 0;
+  top: 0;
+  width: 115px;
+}
+.speaker-desc {
+  margin-left: 135px;
+  text-align: left;
+}
+
+.speaker-desc > * {
+  margin-bottom: 0.5rem;
+}
+
+.speaker-desc > p:first-of-type {
+  text-emphasis: italic;
+  color: #ec5242;
+}
+
+.speaker-desc > div {
+  width: 30px;
+  height: 3px;
+  background-color: #d3d3d3;
+}
+.square-grid-11 div {
+  width: 5px;
+  height: 5px;
+}
+
+.square-grid-11 div:nth-child(2n+1) {
+  background-color: #000;
+}
+.square-grid-11 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+}
+.testimony-underline {
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .speaker-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .speaker-grid > article {
+    margin-bottom: 2rem;
+  }
+
+  .square-grid-11 div:nth-child(2n+1) {
+    background-color: #d3d3d3;
+  }
 }
