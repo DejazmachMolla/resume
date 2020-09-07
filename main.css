@@ -108,6 +108,13 @@ header * {
 .module-title h2 {
   font-family: 'Cocogoose', sans-serif;
 }
+.contact-links img {
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+.external-link {
+  font-size: .9em;
+}
 
 .imagencontact {
   width: calc(35% - 2em);
@@ -653,10 +660,26 @@ footer {
 .lower-edu-banner {
   position: absolute;
   width: 60px;
-  height: 60px;
+  height: 30px;
   margin-top: -20px;
   box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.26);
   z-index: 9;
+}
+.banner-triangle {
+  position: relative;
+  border: 30px solid #109242; 
+  border-bottom-color: transparent;
+  bottom: -10px;
+  left: 0;
+  z-index: 11;
+}
+.red-triangle {
+  border: 30px solid #c52429; 
+  border-bottom-color: transparent;
+}
+.yellow-triangle {
+  border: 30px solid #f7ae3a; 
+  border-bottom-color: transparent;
 }
 .lower-edu-left-banner {
   left: 40px;
@@ -666,15 +689,7 @@ footer {
   right: 40px;
   transform: rotate(-15deg);
 }
-.lower-edu-banner-cover {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  bottom: 0;
-  left: 0;
-  z-index: 10;
-  background-blend-mode: screen;
-}
+
 .lower-banner-cutter {
   position: relative;
   width: 41px;
