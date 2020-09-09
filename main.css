@@ -488,8 +488,9 @@ footer {
   font-weight: bolder;
   margin: .5rem;
   background-color: transparent;
-  border: 3px solid white;
+  border: 3px solid transparent;
   border-radius: 6px;
+  border-radius: 0;
   color: white;
   width: 50%;
   text-decoration: none;
@@ -499,7 +500,6 @@ footer {
 
 .project-btns > a:hover {
   background-color: white;
-  border-color: transparent;
 }
 
 .project.gray  a:hover {
