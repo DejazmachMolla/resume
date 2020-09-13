@@ -47,10 +47,10 @@
 
     setTimeout(() => {
       projects.forEach(element => element.style.transition = "all 1000ms ease-in-out");
-      projects.forEach(element => element.style.transform = "translateX(" + (-435 - to_percent(280)) + "%) rotate(-10deg)");
+      projects.forEach(element => element.style.transform = "translateX(" + (-450 - to_percent(140)) + "%) rotate(-10deg)");
       setTimeout(() => {
         projects.forEach(element => element.style.transition = "all 300ms ease-in-out");
-        projects.forEach(element => element.style.transform = "translateX(" + (-435 - to_percent(280)) + "%) rotate(0)");
+        projects.forEach(element => element.style.transform = "translateX(" + (-450 - to_percent(140)) + "%) rotate(0)");
       }, 1000);
     }, 200);
 

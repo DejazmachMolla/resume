@@ -225,7 +225,7 @@ footer {
 }
 
 .module-title {
-  margin: 0 6%;
+  margin: 0 1px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -252,12 +252,12 @@ footer {
   height: 30px;
   border-radius: 100%;
   position: relative;
-  top: -120px;
+  top: -113px;
   left: calc(50% - 15px);
   text-align: center;
 }
 .hanger-line {
-  height: 100px;
+  height: 130px;
   width: 2px;
   background-color: gray;
   position: relative;
@@ -275,11 +275,12 @@ footer {
 }
 
 .project-list {
-  /* height: 75vh; */
   padding-left: 60px;
+  padding-right: 60px;
+  margin-top: -30px;
+  padding-top: 20px;
+  box-sizing: border-box;
   display: flex;
-  /* gap: 2rem; */
-  /* grid-template-columns: repeat(4, 1fr); */
   position: relative;
   overflow: hidden;
 }
@@ -330,12 +331,12 @@ footer {
   min-width: calc(25% - 35px);
   min-width: calc(25% - 35px);
   box-sizing: border-box;
-  margin: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
   border-radius: 3px;
   box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.26);
   color: white;
   position: relative;
-  /* transition: all 100ms ease-in-out; */
   margin-top: 100px;
   padding-bottom: 3rem;
 }
