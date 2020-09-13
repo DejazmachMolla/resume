@@ -1,5 +1,6 @@
 (function () {
   var prevScrollpos = 150;
+
   window.onscroll = function () {
     var currentScrollPos = window.pageYOffset;
     if (prevScrollpos > currentScrollPos) {
@@ -13,7 +14,6 @@
       for (var i = 0; i < linkTexts.length; i++) {
         linkTexts[i].style.display = "block";
       }
-      //document.getElementsByClassName("contact-links")[0].style.display = "block";
       document.getElementsByClassName("small-image")[0].style.width = "100%";
       document.getElementsByClassName("small-image")[0].style.borderRadius = "20px";
       document.getElementsByClassName("imagencontact")[0].style.width = "calc(35% - 2em)";
@@ -37,4 +37,36 @@
       document.getElementsByClassName("imagencontact")[0].style.width = "40px";
     }
   }
-})();
+
+  function incline() {
+    console.log("inclining")
+    let projects = Array.from(document.getElementsByClassName("project"))
+
+    projects.forEach(element => element.style.transition = "all 400ms ease-in-out");
+    projects.forEach(element => element.style.transform = "translateX(" + (- to_percent(280)) + "%)");
+
+    setTimeout(() => {
+      projects.forEach(element => element.style.transition = "all 1000ms ease-in-out");
+      projects.forEach(element => element.style.transform = "translateX(" + (-435 - to_percent(280)) + "%) rotate(-10deg)");
+      setTimeout(() => {
+        projects.forEach(element => element.style.transition = "all 300ms ease-in-out");
+        projects.forEach(element => element.style.transform = "translateX(" + (-435 - to_percent(280)) + "%) rotate(0)");
+      }, 1000);
+    }, 200);
+
+  }
+  function to_percent(pixels) {
+    console.log('Inner width ' + innerWidth)
+    return (pixels / window.innerWidth) * 100
+  }
+  function vw(v) {
+    var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    return (v * w) / 100;
+  }
+
+  window.onload = function init() {
+    document.getElementsByClassName("next-edu-btn")[0].addEventListener('click', incline);
+    //incline();
+  }
+
+})(document);

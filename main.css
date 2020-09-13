@@ -276,21 +276,21 @@ footer {
 
 .project-list {
   /* height: 75vh; */
-  padding: 0 6%;
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(4, 1fr);
+  padding-left: 60px;
+  display: flex;
+  /* gap: 2rem; */
+  /* grid-template-columns: repeat(4, 1fr); */
   position: relative;
+  overflow: hidden;
 }
-
-.next-btn {
+.next-edu-btn,
+.prev-edu-btn {
   height: 50px;
   width: 50px;
   border-radius: 100%;
   background-color: white;
   position: absolute;
   top: 50%;
-  right: 10px;
   box-shadow: 0px 3px 29px -4px rgba(0,0,0,0.75);
   display: flex;
   align-items: center;
@@ -298,31 +298,46 @@ footer {
   outline: none;
   border: none;
   transition: all 200ms ease-in;
+  z-index: 100;
 }
-.next-btn:hover {
+
+.next-edu-btn {
+  right: 10px;
+}
+.prev-edu-btn {
+  left: 10px;
+}
+
+.next-edu-btn:hover,
+.prev-edu-btn:hover {
   background-color: rgb(182, 180, 180);
 }
-.next-btn:hover > i {
+.next-edu-btn:hover > i,
+.prev-edu-btn:hover > i {
   color: white;
 }
 
-.next-btn > i {
+.next-edu-btn > i,
+.prev-edu-btn > i {
   color: #c52429;
   font-size: 2em;
-  transition: all 200ms ease-in;
+  transition: all 100ms ease-in;
+  z-index: 100;
 }
 
 .project {
-  /* height: 100%; */
-  min-width: 25%;
+  display: inline-block;
+  min-width: calc(25% - 35px);
+  min-width: calc(25% - 35px);
+  box-sizing: border-box;
+  margin: 20px;
   border-radius: 3px;
   box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.26);
   color: white;
   position: relative;
-  transition: all 200ms ease-in;
+  /* transition: all 100ms ease-in-out; */
   margin-top: 100px;
   padding-bottom: 3rem;
-  z-index: 1;
 }
 
 .title-banner {
@@ -522,7 +537,7 @@ footer {
 }
 
 .project:hover {
-  transform: scale(1.01);
+  /* transform: scale(1.01); */
 }
 
 .education-list {
@@ -775,4 +790,21 @@ footer {
   .square-grid-11 div:nth-child(2n+1) {
     background-color: #d3d3d3;
   }
+}
+
+
+
+/* Experimenting with translation */
+.incline-right {
+  transform: rotate(5deg);
+}
+
+.move-left {
+  transform: translate(calc(-200%));
+}
+.move-abit-left {
+  transform: translate(calc(-100px)) rotate(-5deg);
+}
+.incline-left {
+  transform:  rotate(-5deg);
 }
