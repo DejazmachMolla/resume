@@ -38,23 +38,51 @@
     }
   }
 
-  function incline() {
+  function incline(index, growing) {
     console.log("inclining")
+    console.log(index)
     let projects = Array.from(document.getElementsByClassName("project"))
-
-    projects.forEach(element => element.style.transition = "all 400ms ease-in-out");
-    projects.forEach(element => element.style.transform = "translateX(" + (- to_percent(280)) + "%)");
 
     setTimeout(() => {
       projects.forEach(element => element.style.transition = "all 1000ms ease-in-out");
-      projects.forEach(element => element.style.transform = "translateX(" + (-450 - to_percent(140)) + "%) rotate(-10deg)");
+      if (growing) {
+        if (index >= 1) {
+          document.getElementsByClassName("prev-edu-btn")[0].style.display = "block";
+        }
+        if (index >= (projects.length / 4 - 1)) {
+          document.getElementsByClassName("next-edu-btn")[0].style.display = "none";
+        }
+        projects.forEach(element => element.style.transform = "translateX(" + (- (index * 450) - to_percent(140)) + "%) rotate(-5deg)");
+      } else {
+        if (index == 0) {
+          document.getElementsByClassName("prev-edu-btn")[0].style.display = "none";
+        }
+        if (index < (projects.length / 4 - 1)) {
+          document.getElementsByClassName("next-edu-btn")[0].style.display = "block";
+        }
+        projects.forEach(element => element.style.transform = "translateX(" + (- (index * 450) - to_percent(140)) + "%) rotate(5deg)");
+      }
+
       setTimeout(() => {
         projects.forEach(element => element.style.transition = "all 300ms ease-in-out");
-        projects.forEach(element => element.style.transform = "translateX(" + (-450 - to_percent(140)) + "%) rotate(0)");
+        projects.forEach(element => element.style.transform = "translateX(" + (- (index * 450) - to_percent(140)) + "%) rotate(0)");
       }, 1000);
     }, 200);
 
   }
+
+  let count = 0;
+  function moveLeft() {
+    count++;
+    incline(count, true);
+  }
+
+  function moveRight() {
+    count--;
+    incline(count, false);
+  }
+
+
   function to_percent(pixels) {
     console.log('Inner width ' + innerWidth)
     return (pixels / window.innerWidth) * 100
@@ -65,8 +93,9 @@
   }
 
   window.onload = function init() {
-    document.getElementsByClassName("next-edu-btn")[0].addEventListener('click', incline);
-    //incline();
+    document.getElementsByClassName("next-edu-btn")[0].addEventListener('click', moveLeft);
+    document.getElementsByClassName("prev-edu-btn")[0].addEventListener('click', moveRight);
+    document.getElementsByClassName("prev-edu-btn")[0].style.display = "none";
   }
 
 })(document);
