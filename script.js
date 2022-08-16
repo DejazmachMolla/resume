@@ -1,6 +1,10 @@
 (function () {
   var prevScrollpos = 150;
-
+  var projectsWidth = 8*250;
+  document.getElementsByClassName("project-list")[0].style.width = `${projectsWidth}px`;
+  document.getElementsByClassName("module-title")[0].style.width = `${projectsWidth}px`;
+  document.getElementsByClassName("next-edu-btn")[0].style.left = `${window.innerWidth - 100}px`;
+  
   window.onscroll = function () {
     var currentScrollPos = window.pageYOffset;
     if (prevScrollpos > currentScrollPos) {
@@ -40,7 +44,7 @@
 
   function incline(index, growing) {
     console.log("inclining")
-    console.log(index)
+    console.log(index, growing)
     let projects = Array.from(document.getElementsByClassName("project"))
 
     setTimeout(() => {
@@ -48,11 +52,19 @@
       if (growing) {
         if (index >= 1) {
           document.getElementsByClassName("prev-edu-btn")[0].style.display = "block";
+          //document.getElementById("prev-proj-btn").disbled = true;
+          //document.getElementsByClassName("prev-edu-btn")[0].style.display = "block";
+          //document.getElementsByClassName("prev-edu-btn")[0].style.right = `${window.innerWidth - 100}px`;
         }
-        if (index >= (projects.length / 4 - 1)) {
+        console.log('index*250 '+(index + 2)*250)
+        console.log('innerWidth '+window.innerWidth)
+        if((index+2)*250 >= window.innerWidth) {
           document.getElementsByClassName("next-edu-btn")[0].style.display = "none";
         }
-        projects.forEach(element => element.style.transform = "translateX(" + (- (index * 450) - to_percent(140)) + "%) rotate(-5deg)");
+        if (index >= (projects.length / 4 - 1)) {
+          //document.getElementsByClassName("next-edu-btn")[0].style.display = "none";
+        }
+        projects.forEach(element => element.style.transform = "translateX(" + (- (window.innerWidth)) + "px) rotate(-5deg)");
       } else {
         if (index == 0) {
           document.getElementsByClassName("prev-edu-btn")[0].style.display = "none";
@@ -66,6 +78,8 @@
       setTimeout(() => {
         projects.forEach(element => element.style.transition = "all 300ms ease-in-out");
         projects.forEach(element => element.style.transform = "translateX(" + (- (index * 450) - to_percent(140)) + "%) rotate(0)");
+        //document.getElementsByClassName("prev-edu-btn")[0].style.display = "block";
+        //document.getElementsByClassName("prev-edu-btn")[0].style.right = `${window.innerWidth - 100}px`;
       }, 1000);
     }, 200);
 

@@ -220,6 +220,10 @@ footer {
   text-align: center;
 }
 
+.module-main {
+  overflow: hidden;
+}
+
 .module {
   min-height: 50vh;
 }
@@ -328,9 +332,10 @@ footer {
 }
 
 .project {
-  display: inline-block;
-  min-width: calc(25% - 35px);
-  min-width: calc(25% - 35px);
+  /* display: inline-block; */
+  /* min-width: calc(25% - 35px); */
+  /* min-width: calc(25% - 35px); */
+  min-width: 250px;
   box-sizing: border-box;
   margin-left: 20px;
   margin-right: 20px;
