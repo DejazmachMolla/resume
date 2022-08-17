@@ -1,9 +1,30 @@
 (function () {
+
+  function getWidth() {
+    return Math.max(
+      document.body.scrollWidth,
+      document.documentElement.scrollWidth,
+      document.body.offsetWidth,
+      document.documentElement.offsetWidth,
+      document.documentElement.clientWidth
+    );
+  }
+  
+  function getHeight() {
+    return Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.offsetHeight,
+      document.documentElement.clientHeight
+    );
+  }
+
   var prevScrollpos = 150;
   var projectsWidth = 8*250;
   document.getElementsByClassName("project-list")[0].style.width = `${projectsWidth}px`;
   document.getElementsByClassName("module-title")[0].style.width = `${projectsWidth}px`;
-  document.getElementsByClassName("next-edu-btn")[0].style.left = `${window.innerWidth - 100}px`;
+  document.getElementsByClassName("next-edu-btn")[0].style.left = `${getWidth() - 100}px`;
   
   window.onscroll = function () {
     var currentScrollPos = window.pageYOffset;
@@ -42,44 +63,62 @@
     }
   }
 
+  let projects = Array.from(document.getElementsByClassName("project"))
+  let browserWidth = getWidth();
+  console.log("browserWidth : " +browserWidth);
+  console.log("browserWidth/(browserWidth/310) : " + Math.floor(browserWidth/Math.floor(browserWidth/310)) - 60);
+
+  projects.forEach(project => project.style.width = parseInt(Math.floor(browserWidth/Math.floor(browserWidth/310)))-  parseInt(Math.floor(browserWidth/310)*60));
+  console.log("Width : "+parseInt(Math.floor(browserWidth/Math.floor(browserWidth/310)))-  parseInt(Math.floor(browserWidth/310)*60));
+  //projects.forEach(p => console.log("Width : "+(Math.floor(browserWidth/Math.floor(browserWidth/310))) -  Math.floor(browserWidth/310)*60))
+
   function incline(index, growing) {
-    console.log("inclining")
     console.log(index, growing)
-    let projects = Array.from(document.getElementsByClassName("project"))
+    
 
     setTimeout(() => {
       projects.forEach(element => element.style.transition = "all 1000ms ease-in-out");
       if (growing) {
         if (index >= 1) {
           document.getElementsByClassName("prev-edu-btn")[0].style.display = "block";
-          //document.getElementById("prev-proj-btn").disbled = true;
-          //document.getElementsByClassName("prev-edu-btn")[0].style.display = "block";
-          //document.getElementsByClassName("prev-edu-btn")[0].style.right = `${window.innerWidth - 100}px`;
         }
-        console.log('index*250 '+(index + 2)*250)
-        console.log('innerWidth '+window.innerWidth)
-        if((index+2)*250 >= window.innerWidth) {
+        
+        if((index+1)*getWidth() >= 8*270) {
           document.getElementsByClassName("next-edu-btn")[0].style.display = "none";
         }
-        if (index >= (projects.length / 4 - 1)) {
-          //document.getElementsByClassName("next-edu-btn")[0].style.display = "none";
-        }
-        projects.forEach(element => element.style.transform = "translateX(" + (- (window.innerWidth)) + "px) rotate(-5deg)");
+        
+        if(index<=0)
+          projects.forEach(element => element.style.transform = "translateX(" + (index*getWidth()) + "px) rotate(-5deg)");
+        else
+          projects.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(-5deg)");
       } else {
         if (index == 0) {
           document.getElementsByClassName("prev-edu-btn")[0].style.display = "none";
         }
-        if (index < (projects.length / 4 - 1)) {
+        if ((index+1)*getWidth() < 8*250) {
           document.getElementsByClassName("next-edu-btn")[0].style.display = "block";
         }
-        projects.forEach(element => element.style.transform = "translateX(" + (- (index * 450) - to_percent(140)) + "%) rotate(5deg)");
+        if(index<0)
+          projects.forEach(element => element.style.transform = "translateX(" + (index*getWidth()) + "px) rotate(5deg)");
+        else
+          projects.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(5deg)");
       }
-
+      
       setTimeout(() => {
         projects.forEach(element => element.style.transition = "all 300ms ease-in-out");
-        projects.forEach(element => element.style.transform = "translateX(" + (- (index * 450) - to_percent(140)) + "%) rotate(0)");
-        //document.getElementsByClassName("prev-edu-btn")[0].style.display = "block";
-        //document.getElementsByClassName("prev-edu-btn")[0].style.right = `${window.innerWidth - 100}px`;
+        if(growing) {
+          if(index<=0)
+            projects.forEach(element => element.style.transform = "translateX(" + (index*getWidth()) + "px) rotate(0)");
+          else
+            projects.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(0)");
+        } else {
+          if(index<0)
+            projects.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(0)");
+          else
+            projects.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(0)");
+        }
+        //projects.forEach(element => element.style.transform = "translateX(" + 0 + "px) rotate(0)");
+        //projects.forEach(element => element.style.transform = "translateX(" + (- (getWidth())) + "px) rotate(0)");
       }, 1000);
     }, 200);
 
@@ -99,10 +138,10 @@
 
   function to_percent(pixels) {
     console.log('Inner width ' + innerWidth)
-    return (pixels / window.innerWidth) * 100
+    return (pixels / getWidth()) * 100
   }
   function vw(v) {
-    var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    var w = Math.max(document.documentElement.clientWidth, getWidth() || 0);
     return (v * w) / 100;
   }
 

@@ -279,8 +279,8 @@ footer {
 }
 
 .project-list {
-  padding-left: 60px;
-  padding-right: 60px;
+  /* padding-left: 60px; */
+  /* padding-right: 60px; */
   margin-top: -30px;
   padding-top: 20px;
   box-sizing: border-box;
@@ -335,10 +335,10 @@ footer {
   /* display: inline-block; */
   /* min-width: calc(25% - 35px); */
   /* min-width: calc(25% - 35px); */
-  min-width: 250px;
+  /* min-width: 250px; */
   box-sizing: border-box;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
   margin-bottom: 30px;
   border-radius: 3px;
   box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.26);
