@@ -64,11 +64,9 @@
   var projectsWidth = projects.length*minProjectWidth;
   let browserWidth = getWidth();
   document.getElementsByClassName("project-list")[0].style.width = `${projectsWidth}px`;
-  document.getElementsByClassName("module-title")[0].style.width = `${projectsWidth}px`;
   document.getElementsByClassName("next-edu-btn")[0].style.left = `${browserWidth - 100}px`;
 
   console.log("browserWidth : " +browserWidth);
-  console.log("browserWidth/(browserWidth/minProjectWidth) : " + Math.floor(browserWidth/Math.floor(browserWidth/minProjectWidth)));
   var maxProjects = Math.floor(browserWidth/minProjectWidth);
   var projectWidth = Math.floor(browserWidth/maxProjects); // width including margin
 
@@ -79,8 +77,6 @@
   
   function incline(index, growing) {
     console.log(index, growing)
-    
-
     setTimeout(() => {
       projects.forEach(element => element.style.transition = "all 1000ms ease-in-out");
       if (growing) {
@@ -92,10 +88,11 @@
           document.getElementsByClassName("next-edu-btn")[0].style.display = "none";
         }
         
-        if(index<=0)
+        if(index<=0) {
           projects.forEach(element => element.style.transform = "translateX(" + (index*getWidth()) + "px) rotate(-5deg)");
-        else
+        } else {
           projects.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(-5deg)");
+        }
       } else {
         if (index == 0) {
           document.getElementsByClassName("prev-edu-btn")[0].style.display = "none";
@@ -103,10 +100,11 @@
         if ((index+1)*getWidth() < projects.length*projectWidth) {
           document.getElementsByClassName("next-edu-btn")[0].style.display = "block";
         }
-        if(index<0)
+        if(index<0) {
           projects.forEach(element => element.style.transform = "translateX(" + (index*getWidth()) + "px) rotate(5deg)");
-        else
+        } else {
           projects.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(5deg)");
+        }
       }
       
       setTimeout(() => {
@@ -124,7 +122,6 @@
         }
       }, 1000);
     }, 200);
-
   }
 
   let count = 0;
@@ -138,11 +135,6 @@
     incline(count, false);
   }
 
-
-  function to_percent(pixels) {
-    console.log('Inner width ' + innerWidth)
-    return (pixels / getWidth()) * 100
-  }
   function vw(v) {
     var w = Math.max(document.documentElement.clientWidth, getWidth() || 0);
     return (v * w) / 100;
