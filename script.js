@@ -66,10 +66,13 @@
   let projects = Array.from(document.getElementsByClassName("project"))
   let browserWidth = getWidth();
   console.log("browserWidth : " +browserWidth);
-  console.log("browserWidth/(browserWidth/310) : " + Math.floor(browserWidth/Math.floor(browserWidth/310)) - 60);
+  console.log("browserWidth/(browserWidth/310) : " + Math.floor(browserWidth/Math.floor(browserWidth/310)))// - 60);
 
-  projects.forEach(project => project.style.width = parseInt(Math.floor(browserWidth/Math.floor(browserWidth/310)))-  parseInt(Math.floor(browserWidth/310)*60));
-  console.log("Width : "+parseInt(Math.floor(browserWidth/Math.floor(browserWidth/310)))-  parseInt(Math.floor(browserWidth/310)*60));
+  projects.forEach(project => {
+    project.style.display = "inline-block !important";
+    project.style.flex = `0 0 ${parseInt(Math.floor(browserWidth/Math.floor(browserWidth/310))) - 60}px`;
+  })//-parseInt(Math.floor(browserWidth/310)*60));
+  console.log("Width : "+parseInt(Math.floor(browserWidth/Math.floor(browserWidth/310))))//-parseInt(Math.floor(browserWidth/310)*60));
   //projects.forEach(p => console.log("Width : "+(Math.floor(browserWidth/Math.floor(browserWidth/310))) -  Math.floor(browserWidth/310)*60))
 
   function incline(index, growing) {
