@@ -20,11 +20,7 @@
     );
   }
 
-  var prevScrollpos = 150;
-  var projectsWidth = 8*250;
-  document.getElementsByClassName("project-list")[0].style.width = `${projectsWidth}px`;
-  document.getElementsByClassName("module-title")[0].style.width = `${projectsWidth}px`;
-  document.getElementsByClassName("next-edu-btn")[0].style.left = `${getWidth() - 100}px`;
+  var prevScrollpos = 150; 
   
   window.onscroll = function () {
     var currentScrollPos = window.pageYOffset;
@@ -63,18 +59,24 @@
     }
   }
 
-  let projects = Array.from(document.getElementsByClassName("project"))
+  let projects = Array.from(document.getElementsByClassName("project"));
+  const minProjectWidth = 280;
+  var projectsWidth = projects.length*minProjectWidth;
   let browserWidth = getWidth();
+  document.getElementsByClassName("project-list")[0].style.width = `${projectsWidth}px`;
+  document.getElementsByClassName("module-title")[0].style.width = `${projectsWidth}px`;
+  document.getElementsByClassName("next-edu-btn")[0].style.left = `${browserWidth - 100}px`;
+
   console.log("browserWidth : " +browserWidth);
-  console.log("browserWidth/(browserWidth/310) : " + Math.floor(browserWidth/Math.floor(browserWidth/310)))// - 60);
+  console.log("browserWidth/(browserWidth/minProjectWidth) : " + Math.floor(browserWidth/Math.floor(browserWidth/minProjectWidth)));
+  var maxProjects = Math.floor(browserWidth/minProjectWidth);
+  var projectWidth = Math.floor(browserWidth/maxProjects); // width including margin
 
   projects.forEach(project => {
     project.style.display = "inline-block !important";
-    project.style.flex = `0 0 ${parseInt(Math.floor(browserWidth/Math.floor(browserWidth/310))) - 60}px`;
-  })//-parseInt(Math.floor(browserWidth/310)*60));
-  console.log("Width : "+parseInt(Math.floor(browserWidth/Math.floor(browserWidth/310))))//-parseInt(Math.floor(browserWidth/310)*60));
-  //projects.forEach(p => console.log("Width : "+(Math.floor(browserWidth/Math.floor(browserWidth/310))) -  Math.floor(browserWidth/310)*60))
-
+    project.style.flex = `0 0 ${parseInt(projectWidth) - 60}px`;
+  })
+  
   function incline(index, growing) {
     console.log(index, growing)
     
@@ -86,7 +88,7 @@
           document.getElementsByClassName("prev-edu-btn")[0].style.display = "block";
         }
         
-        if((index+1)*getWidth() >= 8*270) {
+        if((index+1)*getWidth() >= projects.length*projectWidth) {
           document.getElementsByClassName("next-edu-btn")[0].style.display = "none";
         }
         
@@ -98,7 +100,7 @@
         if (index == 0) {
           document.getElementsByClassName("prev-edu-btn")[0].style.display = "none";
         }
-        if ((index+1)*getWidth() < 8*250) {
+        if ((index+1)*getWidth() < projects.length*projectWidth) {
           document.getElementsByClassName("next-edu-btn")[0].style.display = "block";
         }
         if(index<0)
@@ -120,8 +122,6 @@
           else
             projects.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(0)");
         }
-        //projects.forEach(element => element.style.transform = "translateX(" + 0 + "px) rotate(0)");
-        //projects.forEach(element => element.style.transform = "translateX(" + (- (getWidth())) + "px) rotate(0)");
       }, 1000);
     }, 200);
 
