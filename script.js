@@ -1,4 +1,9 @@
 (function () {
+  const SliderType = {
+    PROJECT: 0,
+    EDUCATION: 1
+  };
+  let sliderType = SliderType.PROJECT;
 
   function getWidth() {
     return Math.max(
@@ -7,16 +12,6 @@
       document.body.offsetWidth,
       document.documentElement.offsetWidth,
       document.documentElement.clientWidth
-    );
-  }
-  
-  function getHeight() {
-    return Math.max(
-      document.body.scrollHeight,
-      document.documentElement.scrollHeight,
-      document.body.offsetHeight,
-      document.documentElement.offsetHeight,
-      document.documentElement.clientHeight
     );
   }
 
@@ -60,90 +55,132 @@
   }
 
   let projects = Array.from(document.getElementsByClassName("project"));
+  let educations = Array.from(document.getElementsByClassName("edu-container"));
+
   const minProjectWidth = 280;
+  const minEducationWidth = 280;
+  
   var projectsWidth = projects.length*minProjectWidth;
+  var educationsWidth = educations.length*minEducationWidth;
+
   let browserWidth = getWidth();
   document.getElementsByClassName("project-list")[0].style.width = `${projectsWidth}px`;
+  // document.getElementsByClassName("education-list")[0].style.width = `${educationsWidth}px`;
+
   document.getElementsByClassName("next-edu-btn")[0].style.left = `${browserWidth - 100}px`;
+  document.getElementsByClassName("next-edu-btn")[1].style.left = `${browserWidth - 100}px`;
 
   console.log("browserWidth : " +browserWidth);
   var maxProjects = Math.floor(browserWidth/minProjectWidth);
   var projectWidth = Math.floor(browserWidth/maxProjects); // width including margin
 
+  var maxEducations = Math.floor(browserWidth/minEducationWidth);
+  var educationWidth = Math.floor(browserWidth/maxEducations);
+
   projects.forEach(project => {
-    project.style.display = "inline-block !important";
     project.style.flex = `0 0 ${parseInt(projectWidth) - 60}px`;
+  })
+
+  educations.forEach(edu => {
+    edu.style.flex = `0 0 ${parseInt(educationWidth) - 30}px`;
   })
   
   function incline(index, growing) {
-    console.log(index, growing)
+    let sliderItems = [];
+    let classIndex = 0;
+    if(sliderType==SliderType.PROJECT) {
+      sliderItems = projects;
+    } else {
+      sliderItems = educations;
+      classIndex = 1;
+    }
+
+    function stop(sI, growing) {
+      setTimeout(() => {
+        sI.forEach(element => element.style.transition = "all 300ms ease-in-out");
+        if(growing) {
+          if(index<=0)
+            sI.forEach(element => element.style.transform = "translateX(" + (index*getWidth()) + "px) rotate(0)");
+          else
+            sI.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(0)");
+        } else {
+          if(index<0)
+            sI.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(0)");
+          else
+            sI.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(0)");
+        }
+      }, 1000);
+    }
+
     setTimeout(() => {
-      projects.forEach(element => element.style.transition = "all 1000ms ease-in-out");
+      sliderItems.forEach(element => element.style.transition = "all 1000ms ease-in-out");
       if (growing) {
         if (index >= 1) {
-          document.getElementsByClassName("prev-edu-btn")[0].style.display = "block";
+          document.getElementsByClassName("prev-edu-btn")[classIndex].style.display = "block";
         }
         
-        if((index+1)*getWidth() >= projects.length*projectWidth) {
-          document.getElementsByClassName("next-edu-btn")[0].style.display = "none";
+        if((index+1)*getWidth() >= sliderItems.length*projectWidth) {
+          document.getElementsByClassName("next-edu-btn")[classIndex].style.display = "none";
         }
         
         if(index<=0) {
-          projects.forEach(element => element.style.transform = "translateX(" + (index*getWidth()) + "px) rotate(-5deg)");
+          sliderItems.forEach(element => element.style.transform = "translateX(" + (index*getWidth()) + "px) rotate(-5deg)");
         } else {
-          projects.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(-5deg)");
+          sliderItems.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(-5deg)");
         }
       } else {
         if (index == 0) {
-          document.getElementsByClassName("prev-edu-btn")[0].style.display = "none";
+          document.getElementsByClassName("prev-edu-btn")[classIndex].style.display = "none";
         }
-        if ((index+1)*getWidth() < projects.length*projectWidth) {
-          document.getElementsByClassName("next-edu-btn")[0].style.display = "block";
+        if ((index+1)*getWidth() < sliderItems.length*projectWidth) {
+          document.getElementsByClassName("next-edu-btn")[classIndex].style.display = "block";
         }
         if(index<0) {
-          projects.forEach(element => element.style.transform = "translateX(" + (index*getWidth()) + "px) rotate(5deg)");
+          sliderItems.forEach(element => element.style.transform = "translateX(" + (index*getWidth()) + "px) rotate(5deg)");
         } else {
-          projects.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(5deg)");
+          sliderItems.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(5deg)");
         }
       }
+      stop(sliderItems, growing);
       
-      setTimeout(() => {
-        projects.forEach(element => element.style.transition = "all 300ms ease-in-out");
-        if(growing) {
-          if(index<=0)
-            projects.forEach(element => element.style.transform = "translateX(" + (index*getWidth()) + "px) rotate(0)");
-          else
-            projects.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(0)");
-        } else {
-          if(index<0)
-            projects.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(0)");
-          else
-            projects.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(0)");
-        }
-      }, 1000);
     }, 200);
   }
 
-  let count = 0;
-  function moveLeft() {
-    count++;
-    incline(count, true);
+  let projectCount = 0;
+  let educationCount = 0;
+  function moveProjectLeft() {
+    sliderType = SliderType.PROJECT;
+    projectCount++;
+    incline(projectCount, true);
   }
 
-  function moveRight() {
-    count--;
-    incline(count, false);
+  function moveProjectRight() {
+    sliderType = SliderType.PROJECT;
+    projectCount--;
+    incline(projectCount, false);
   }
 
-  function vw(v) {
-    var w = Math.max(document.documentElement.clientWidth, getWidth() || 0);
-    return (v * w) / 100;
+  function moveEducationLeft() {
+    sliderType = SliderType.EDUCATION;
+    educationCount++;
+    incline(educationCount, true);
+  }
+
+  function moveEducationRight() {
+    sliderType = SliderType.EDUCATION;
+    educationCount--;
+    incline(educationCount, false);
   }
 
   window.onload = function init() {
-    document.getElementsByClassName("next-edu-btn")[0].addEventListener('click', moveLeft);
-    document.getElementsByClassName("prev-edu-btn")[0].addEventListener('click', moveRight);
+    document.getElementsByClassName("next-edu-btn")[0].addEventListener('click', moveProjectLeft);
+    document.getElementsByClassName("prev-edu-btn")[0].addEventListener('click', moveProjectRight);
+
+    document.getElementsByClassName("next-edu-btn")[1].addEventListener('click', moveEducationLeft);
+    document.getElementsByClassName("prev-edu-btn")[1].addEventListener('click', moveEducationRight);
+
     document.getElementsByClassName("prev-edu-btn")[0].style.display = "none";
+    document.getElementsByClassName("prev-edu-btn")[1].style.display = "none";
   }
 
 })(document);

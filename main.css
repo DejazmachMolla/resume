@@ -226,6 +226,7 @@ footer {
 
 .module {
   min-height: 50vh;
+  z-index: 1;
 }
 
 .module-title {
@@ -260,6 +261,9 @@ footer {
   left: calc(50% - 15px);
   text-align: center;
 }
+.education > .hanger-dot {
+  top: -140px;
+}
 .hanger-line {
   height: 130px;
   width: 2px;
@@ -278,17 +282,23 @@ footer {
   border-radius: 10px;
 }
 
-.project-list {
-  /* padding-left: 60px; */
-  /* padding-right: 60px; */
-  margin-top: -30px;
-  padding-top: 20px;
+.project-list,
+.education-list {
   box-sizing: border-box;
+  margin: auto;
+  padding: auto;
   display: flex;
-  /* display: block; */
   position: relative;
   overflow: hidden;
-  /* border: 1px solid darkred; */
+}
+.project-list {
+  margin-top: -30px;
+  padding-top: 20px;
+  width: 100%;
+}
+
+.education-list {
+  
 }
 .next-edu-btn,
 .prev-edu-btn {
@@ -542,24 +552,13 @@ footer {
   transition: all 200ms ease-in;
 }
 
-.project:hover {
-  /* transform: scale(1.01); */
-}
-
-.education-list {
-  padding: 0 6%;
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(3, 1fr);
-  position: relative;
-}
-
 .school {
   display: flex;
 }
 .edu-container {
   position: relative;
-  
+  margin-left: 15px;
+  margin-right: 15px;
 }
 .education {
   border-radius: 3px;
@@ -567,15 +566,21 @@ footer {
   color: white;
   position: relative;
   transition: all 200ms ease-in;
-  margin-top: 100px;
+  margin-top: 110px;
   padding: 1rem 5% 20px;
   margin-right: 20px;
   margin-left: 20px;
+  margin-bottom: 100px;
   background-image: url(./images/education_background.png);
   background-position: center;
   background-blend-mode: overlay;
   background-size: cover;
   z-index: 10;
+}
+
+.above-banner {
+  position: relative;
+  z-index: 20;
 }
 
 .education:hover {
@@ -589,7 +594,8 @@ footer {
   margin-top: -65px;
   align-items: flex-start;
   justify-content: center;
-  /* padding: 0 5%; */
+  position: relative;
+  z-index: 5;
 }
 .education-desc > p {
   align-self: center;
@@ -681,16 +687,18 @@ footer {
 .lower-edu-banner {
   position: absolute;
   width: 60px;
-  height: 30px;
+  /* height: 30px; */
   margin-top: -20px;
   box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.26);
-  z-index: 9;
+  /* z-index: 3; */
+  height: 100px;
 }
 .banner-triangle {
   position: relative;
   border: 30px solid #109242; 
   border-bottom-color: transparent;
   bottom: -10px;
+  bottom: -70px;
   left: 0;
   z-index: 11;
 }
@@ -703,11 +711,16 @@ footer {
   border-bottom-color: transparent;
 }
 .lower-edu-left-banner {
+  /* position: absolute; */
   left: 40px;
+  bottom: 80px;
   transform: rotate(15deg);
+  /* z-index: 9; */
 }
 .lower-edu-right-banner {
+  /* position: absolute; */
   right: 40px;
+  bottom: 80px;
   transform: rotate(-15deg);
 }
 
