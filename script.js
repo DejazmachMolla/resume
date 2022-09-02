@@ -5,7 +5,7 @@
   };
   let sliderType = SliderType.PROJECT;
 
-  function getWidth() {
+  function getCurrentBrowserWidth() {
     return Math.max(
       document.body.scrollWidth,
       document.documentElement.scrollWidth,
@@ -15,27 +15,28 @@
     );
   }
 
-  var prevScrollpos = 150; 
-  
-  window.onscroll = function () {
-    var currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-      document.getElementById("text-content").style.display = "block";
-      document.getElementsByClassName("imagencontact")[0].style.borderTopLeftRadius = "0";
-      document.getElementById("text-content").style.width = "calc(65% - 2em)";
-      document.getElementsByTagName("header")[0].style.right = "1em";
-      document.getElementsByTagName("header")[0].style.top = "1em";
-      document.getElementsByClassName("contact-links")[0].style.display = "block";
-      var linkTexts = document.getElementsByClassName("external-link");
-      for (var i = 0; i < linkTexts.length; i++) {
-        linkTexts[i].style.display = "block";
-      }
-      document.getElementsByClassName("small-image")[0].style.width = "100%";
-      document.getElementsByClassName("small-image")[0].style.borderRadius = "20px";
-      document.getElementsByClassName("imagencontact")[0].style.width = "calc(35% - 2em)";
+  /**
+   * Show text content of the developer intro
+   */
 
-    } else {
-      document.getElementById("text-content").style.display = "none";
+  function showDeveloperIntroText() {
+    document.getElementById("text-content").style.display = "block";
+    document.getElementsByClassName("imagencontact")[0].style.borderTopLeftRadius = "0";
+    document.getElementById("text-content").style.width = "calc(65% - 2em)";
+    document.getElementsByTagName("header")[0].style.right = "1em";
+    document.getElementsByTagName("header")[0].style.top = "1em";
+    document.getElementsByClassName("contact-links")[0].style.display = "block";
+    var linkTexts = document.getElementsByClassName("external-link");
+    for (var i = 0; i < linkTexts.length; i++) {
+      linkTexts[i].style.display = "block";
+    }
+    document.getElementsByClassName("small-image")[0].style.width = "100%";
+    document.getElementsByClassName("small-image")[0].style.borderRadius = "20px";
+    document.getElementsByClassName("imagencontact")[0].style.width = "calc(35% - 2em)";
+  }
+
+  function hideDeveloperIntroText() {
+    document.getElementById("text-content").style.display = "none";
       document.getElementById("text-content").style.width = "0";
       document.getElementsByClassName("imagencontact")[0].style.borderTopLeftRadius = "6px";
       document.getElementsByTagName("header")[0].style.right = "0";
@@ -51,6 +52,27 @@
       document.getElementsByClassName("small-image")[0].style.width = "40px";
       document.getElementsByClassName("small-image")[0].style.borderRadius = "100%";
       document.getElementsByClassName("imagencontact")[0].style.width = "40px";
+  }
+  var prevScrollpos = 150; 
+  var minTextAllowingWidth = 600;
+
+  /**
+   * Hide developer intro for mobile devices
+   */
+  function hideDeveloperIntroForMobile() {
+    if(minTextAllowingWidth > getCurrentBrowserWidth()) {
+      hideDeveloperIntroText();
+    }
+  }
+  
+  hideDeveloperIntroForMobile();
+  window.onscroll = function () {
+    //hideDeveloperIntroForMobile();
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos && minTextAllowingWidth <= getCurrentBrowserWidth()) {
+      showDeveloperIntroText();
+    } else {
+      hideDeveloperIntroText();
     }
   }
 
@@ -63,7 +85,7 @@
   var projectsWidth = projects.length*minProjectWidth;
   var educationsWidth = educations.length*minEducationWidth;
 
-  let browserWidth = getWidth();
+  let browserWidth = getCurrentBrowserWidth();
   document.getElementsByClassName("project-list")[0].style.width = `${projectsWidth}px`;
   // document.getElementsByClassName("education-list")[0].style.width = `${educationsWidth}px`;
 
@@ -100,14 +122,14 @@
         sI.forEach(element => element.style.transition = "all 300ms ease-in-out");
         if(growing) {
           if(index<=0)
-            sI.forEach(element => element.style.transform = "translateX(" + (index*getWidth()) + "px) rotate(0)");
+            sI.forEach(element => element.style.transform = "translateX(" + (index*getCurrentBrowserWidth()) + "px) rotate(0)");
           else
-            sI.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(0)");
+            sI.forEach(element => element.style.transform = "translateX(" + (- (index*getCurrentBrowserWidth())) + "px) rotate(0)");
         } else {
           if(index<0)
-            sI.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(0)");
+            sI.forEach(element => element.style.transform = "translateX(" + (- (index*getCurrentBrowserWidth())) + "px) rotate(0)");
           else
-            sI.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(0)");
+            sI.forEach(element => element.style.transform = "translateX(" + (- (index*getCurrentBrowserWidth())) + "px) rotate(0)");
         }
       }, 1000);
     }
@@ -119,26 +141,26 @@
           document.getElementsByClassName("prev-edu-btn")[classIndex].style.display = "block";
         }
         
-        if((index+1)*getWidth() >= sliderItems.length*projectWidth) {
+        if((index+1)*getCurrentBrowserWidth() >= sliderItems.length*projectWidth) {
           document.getElementsByClassName("next-edu-btn")[classIndex].style.display = "none";
         }
         
         if(index<=0) {
-          sliderItems.forEach(element => element.style.transform = "translateX(" + (index*getWidth()) + "px) rotate(-5deg)");
+          sliderItems.forEach(element => element.style.transform = "translateX(" + (index*getCurrentBrowserWidth()) + "px) rotate(-5deg)");
         } else {
-          sliderItems.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(-5deg)");
+          sliderItems.forEach(element => element.style.transform = "translateX(" + (- (index*getCurrentBrowserWidth())) + "px) rotate(-5deg)");
         }
       } else {
         if (index == 0) {
           document.getElementsByClassName("prev-edu-btn")[classIndex].style.display = "none";
         }
-        if ((index+1)*getWidth() < sliderItems.length*projectWidth) {
+        if ((index+1)*getCurrentBrowserWidth() < sliderItems.length*projectWidth) {
           document.getElementsByClassName("next-edu-btn")[classIndex].style.display = "block";
         }
         if(index<0) {
-          sliderItems.forEach(element => element.style.transform = "translateX(" + (index*getWidth()) + "px) rotate(5deg)");
+          sliderItems.forEach(element => element.style.transform = "translateX(" + (index*getCurrentBrowserWidth()) + "px) rotate(5deg)");
         } else {
-          sliderItems.forEach(element => element.style.transform = "translateX(" + (- (index*getWidth())) + "px) rotate(5deg)");
+          sliderItems.forEach(element => element.style.transform = "translateX(" + (- (index*getCurrentBrowserWidth())) + "px) rotate(5deg)");
         }
       }
       stop(sliderItems, growing);

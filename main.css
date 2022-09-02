@@ -43,33 +43,19 @@ header {
   text-align: right;
   top: 1em;
   right: 1em;
-  width: 40%;
+  min-width: 40%;
+  max-width: 70%;
   transition: all .2s ease-in;
   z-index: 5;
   
 }
 
+
+
 header * {
-  display: inline;
+  display: inline-block;
   vertical-align: middle;
   text-align: right;
-}
-
-.badge-info {
-  position: fixed;
-  color: black;
-  left: -70px;
-  top: 70px;
-  background-color: yellow;
-  height: 40px;
-  transform: rotate(-30deg);
-  padding: 0 3em;
-}
-
-.badge-info * {
-  vertical-align: middle;
-  padding: 1em;
-  text-align: center;
 }
 
 .icon {
@@ -282,8 +268,7 @@ footer {
   border-radius: 10px;
 }
 
-.project-list,
-.education-list {
+.project-list {
   box-sizing: border-box;
   margin: auto;
   padding: auto;
@@ -297,9 +282,6 @@ footer {
   width: 100%;
 }
 
-.education-list {
-  
-}
 .next-edu-btn,
 .prev-edu-btn {
   height: 50px;
@@ -751,6 +733,7 @@ footer {
   top: 15px;
   width: 100px;
   transition: 300ms all ease-out;
+  background-color: white;
 }
 
 .speaker-grid article img:hover {
@@ -808,6 +791,12 @@ footer {
 
   .square-grid-11 div:nth-child(2n+1) {
     background-color: #d3d3d3;
+  }
+}
+
+@media screen and (min-width: 1013px) {
+  header {
+    width: 40%;
   }
 }
 
