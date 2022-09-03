@@ -87,14 +87,13 @@
 
   let browserWidth = getCurrentBrowserWidth();
   document.getElementsByClassName("project-list")[0].style.width = `${projectsWidth}px`;
-  // document.getElementsByClassName("education-list")[0].style.width = `${educationsWidth}px`;
-
-  document.getElementsByClassName("next-edu-btn")[0].style.left = `${browserWidth - 100}px`;
-  document.getElementsByClassName("next-edu-btn")[1].style.left = `${browserWidth - 100}px`;
+  
+  document.getElementsByClassName("next-btn")[0].style.left = `${browserWidth - 100}px`;
+  document.getElementsByClassName("next-btn")[1].style.left = `${browserWidth - 100}px`;
 
   console.log("browserWidth : " +browserWidth);
   var maxProjects = Math.floor(browserWidth/minProjectWidth);
-  var projectWidth = Math.floor(browserWidth/maxProjects); // width including margin
+  var projectWidth = Math.floor(browserWidth/maxProjects);
 
   var maxEducations = Math.floor(browserWidth/minEducationWidth);
   var educationWidth = Math.floor(browserWidth/maxEducations);
@@ -103,9 +102,27 @@
     project.style.flex = `0 0 ${parseInt(projectWidth) - 60}px`;
   })
 
+  /**
+   * Show next projects button if there are enough projects than the window can contain
+   */
+  if (getCurrentBrowserWidth() < projects.length*projectWidth) {
+    document.getElementsByClassName("next-btn")[0].style.display = "block";
+  } else {
+    document.getElementsByClassName("next-btn")[0].style.display = "none";
+  }
+
   educations.forEach(edu => {
     edu.style.flex = `0 0 ${parseInt(educationWidth) - 30}px`;
   })
+  
+  /**
+   * Show next projects button if there are enough projects than the window can contain
+   */
+  if (getCurrentBrowserWidth() < educations.length*educationWidth) {
+    document.getElementsByClassName("next-btn")[1].style.display = "block";
+  } else {
+    document.getElementsByClassName("next-btn")[1].style.display = "none";
+  }
   
   function incline(index, growing) {
     let sliderItems = [];
@@ -138,11 +155,11 @@
       sliderItems.forEach(element => element.style.transition = "all 1000ms ease-in-out");
       if (growing) {
         if (index >= 1) {
-          document.getElementsByClassName("prev-edu-btn")[classIndex].style.display = "block";
+          document.getElementsByClassName("prev-btn")[classIndex].style.display = "block";
         }
         
         if((index+1)*getCurrentBrowserWidth() >= sliderItems.length*projectWidth) {
-          document.getElementsByClassName("next-edu-btn")[classIndex].style.display = "none";
+          document.getElementsByClassName("next-btn")[classIndex].style.display = "none";
         }
         
         if(index<=0) {
@@ -152,10 +169,10 @@
         }
       } else {
         if (index == 0) {
-          document.getElementsByClassName("prev-edu-btn")[classIndex].style.display = "none";
+          document.getElementsByClassName("prev-btn")[classIndex].style.display = "none";
         }
         if ((index+1)*getCurrentBrowserWidth() < sliderItems.length*projectWidth) {
-          document.getElementsByClassName("next-edu-btn")[classIndex].style.display = "block";
+          document.getElementsByClassName("next-btn")[classIndex].style.display = "block";
         }
         if(index<0) {
           sliderItems.forEach(element => element.style.transform = "translateX(" + (index*getCurrentBrowserWidth()) + "px) rotate(5deg)");
@@ -195,14 +212,14 @@
   }
 
   window.onload = function init() {
-    document.getElementsByClassName("next-edu-btn")[0].addEventListener('click', moveProjectLeft);
-    document.getElementsByClassName("prev-edu-btn")[0].addEventListener('click', moveProjectRight);
+    document.getElementsByClassName("next-btn")[0].addEventListener('click', moveProjectLeft);
+    document.getElementsByClassName("prev-btn")[0].addEventListener('click', moveProjectRight);
 
-    document.getElementsByClassName("next-edu-btn")[1].addEventListener('click', moveEducationLeft);
-    document.getElementsByClassName("prev-edu-btn")[1].addEventListener('click', moveEducationRight);
+    document.getElementsByClassName("next-btn")[1].addEventListener('click', moveEducationLeft);
+    document.getElementsByClassName("prev-btn")[1].addEventListener('click', moveEducationRight);
 
-    document.getElementsByClassName("prev-edu-btn")[0].style.display = "none";
-    document.getElementsByClassName("prev-edu-btn")[1].style.display = "none";
+    document.getElementsByClassName("prev-btn")[0].style.display = "none";
+    document.getElementsByClassName("prev-btn")[1].style.display = "none";
   }
 
 })(document);

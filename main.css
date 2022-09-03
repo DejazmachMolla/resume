@@ -297,8 +297,8 @@ footer {
   width: 100%;
 }
 
-.next-edu-btn,
-.prev-edu-btn {
+.next-btn,
+.prev-btn {
   height: 50px;
   width: 50px;
   border-radius: 100%;
@@ -315,24 +315,24 @@ footer {
   z-index: 100;
 }
 
-.next-edu-btn {
+.next-btn {
   right: 10px;
 }
-.prev-edu-btn {
+.prev-btn {
   left: 10px;
 }
 
-.next-edu-btn:hover,
-.prev-edu-btn:hover {
+.next-btn:hover,
+.prev-btn:hover {
   background-color: rgb(182, 180, 180);
 }
-.next-edu-btn:hover > i,
-.prev-edu-btn:hover > i {
+.next-btn:hover > i,
+.prev-btn:hover > i {
   color: white;
 }
 
-.next-edu-btn > i,
-.prev-edu-btn > i {
+.next-btn > i,
+.prev-btn > i {
   color: #c52429;
   font-size: 2em;
   transition: all 100ms ease-in;
