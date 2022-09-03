@@ -170,11 +170,26 @@ svg#twitter {
 
 .article-class ul {
   margin-left: 2em;
+  margin-top: 0;
 }
 
 .article-title>p {
   font-style: italic;
 }
+
+@media screen and (max-width: 800px) {
+  .article-class {
+    display: inline-block;
+  }
+  .article-class > * {
+    width: 100%;
+  }
+
+  .article-class > ul {
+    margin-top: 1rem;
+  }
+}
+
 
 .section-dot {
   width: 13px;
