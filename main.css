@@ -44,11 +44,25 @@ header {
   top: 1em;
   right: 1em;
   min-width: 40%;
-  max-width: 70%;
+  max-width: 50%;
   transition: all .2s ease-in;
   z-index: 5;
   
 }
+
+@media screen and (max-width: 1000px) {
+  header {
+    max-width: 60%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  header {
+    max-width: 90%;
+  }
+}
+
+
 
 
 
@@ -56,6 +70,12 @@ header * {
   display: inline-block;
   vertical-align: middle;
   text-align: right;
+}
+
+.text-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
 }
 
 .icon {
@@ -73,7 +93,7 @@ header * {
 }
 
 .text-content {
-  width: calc(65% - 2em);
+  /* width: calc(65% - 2em); */
   float: left;
   background: linear-gradient(90deg, rgba(0, 0, 0, .9) 60%, rgba(0, 0, 0, .9));
   padding: 1em;
@@ -103,7 +123,7 @@ header * {
 }
 
 .imagencontact {
-  width: calc(35% - 2em);
+  /* width: calc(35% - 2em); */
   float: right;
   background: linear-gradient(90deg, rgba(0, 0, 0, .9) 20%, #bb1919);
   padding: 1em;
@@ -111,6 +131,7 @@ header * {
   border-bottom-right-radius: 6px;
   border-top-right-radius: 6px;
   text-align: center;
+  max-width: 200px;
 }
 
 .imagencontact * {
@@ -810,9 +831,9 @@ footer {
 }
 
 @media screen and (min-width: 1013px) {
-  header {
+  /* header {
     width: 40%;
-  }
+  } */
 }
 
 
