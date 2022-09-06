@@ -81,6 +81,13 @@
     }
   }
 
+  window.onresize = function() {
+    setTimeout(() =>
+      location.reload(),
+      2000
+    )
+  }
+
   let projects = Array.from(document.getElementsByClassName("project"));
   let educations = Array.from(document.getElementsByClassName("edu-container"));
 
