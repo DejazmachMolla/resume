@@ -65,7 +65,7 @@
     if(minTextAllowingWidth > getCurrentBrowserWidth()) {
       hideDeveloperIntroText();
     } else {
-      document.getElementById("text-content").style.height = `${document.getElementById("imagencontact").offsetWidth -24}px`;
+      document.getElementById("text-content").style.height = `${document.getElementById("imagencontact").offsetWidth -12}px`;
       document.getElementById("text-content").style.width = "auto";
     }
   }
